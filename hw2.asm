@@ -17,6 +17,6 @@ FINAL_TEXT: .asciiz "The Sorted Array: "
 .text
 .global main
 
-main
+main:
 
 addi    $sp, $sp, -120      # space in stack for 30 ints
