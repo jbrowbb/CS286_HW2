@@ -62,3 +62,13 @@ syscall
 li  $v0, 1      # set up to print int with syscall number
 syscall
 ```
+
+
+Assignment
+=============
+
+* must create MIPS program that runs in the MARS simulator
+* program must be a bibble sort
+* sort an array of 30 integers
+* array must be allocated ON THE STACK
+* program must print the corted numbers at the end
