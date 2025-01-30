@@ -72,3 +72,53 @@ Assignment
 * sort an array of 30 integers
 * array must be allocated ON THE STACK
 * program must print the corted numbers at the end
+
+
+Basic Example Program
+========================
+
+The following is a basic example program that allocated an array of 2 integers on the stack, puts random numbers in it, and prints it out
+
+```ruby
+.data
+NEWLINE: .ascizz "\n"
+
+.text
+.globl main             # required
+
+main                    # required
+
+addi    $sp, $sp, -8    # make space for 2 ints, 8 bytes on teh stack
+
+li  $a0, 0              # set up random number system call
+li  $a1, 100            # max random number is 100
+li  $v0, 42             # syscall 42 is random number in a range
+
+syscall                 # random number is now in $a0
+
+sw  $a0, 0($sp)         # store the number in array location [0]
+syscall                 # random number is in $a0
+sw  $a0, 4($sp)         # store the number in array location [1]
+                        # NOTE I am making the arrat start at a lower address
+                        # and go UP in memory!
+
+# now print out the numbers
+li  $v0, 1              # set up to print int
+lw  $a0, 0($sp)         # get the int to print
+syscall
+li  $v0, 4              # set up to print a string
+la  $a0, NEWLINE        # la is LOAD ADDRESS. newline is declared
+                        # at the start of the program
+syscall
+
+li  $v0, 1              # set up to print int
+lw  $a0, 4($sp)         # get the int to print
+syscall
+li  $v0, 4              # set up to print a string
+la  $a0, NEWLINE        # la is LOAD ADDRESS. newline is declared
+                        # at the start of the program
+syscall
+
+li  $v0, 10             # last 2 lines are required to make program exit
+syscall
+```
