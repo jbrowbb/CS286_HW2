@@ -37,3 +37,28 @@ int main() {
     }
 }
 ```
+
+
+MIPS Implementation Notes
+============================
+
+## syscall
+
+* code 1 tp print integers (put the integer to print in $a0)
+* code 4 to print a string (a newline character in our case)
+* code 42 to get a random number
+
+### Example code
+
+the following code shows how to get a random number, then print it
+
+```ruby
+li  $a0, 0      # set up random number system call
+                # use generator 0
+li  $a1, 100    # max random number is 100
+li  $v0, 42     # syscall 42 is random number in a range.
+                # Result goes to $a0
+syscall
+li  $v0, 1      # set up to print int with syscall number
+syscall
+```
