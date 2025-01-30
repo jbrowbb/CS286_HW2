@@ -12,3 +12,9 @@ LOOP_NUM: .asciiz "Iteration number "
 FILL: .asciiz ": "
 
 FINAL_TEXT: .asciiz "The Sorted Array: "
+
+
+.text
+.global main
+
+main
