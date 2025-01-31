@@ -22,4 +22,4 @@ main:
 addi    $sp, $sp, -120      # space in stack for 30 ints
 
 li  $t0, 0      # loop start number
-li  $t1, 120    # loop end numbergit
+li  $t1, 30    # loop end numbergit
