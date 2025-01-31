@@ -15,11 +15,23 @@ FINAL_TEXT: .asciiz "The Sorted Array: "
 
 
 .text
-.global main
+.globl main
 
 main:
 
 addi    $sp, $sp, -120      # space in stack for 30 ints
 
-li  $t0, 0      # loop start number
-li  $t1, 30    # loop end numbergit
+li      $t0, 0              # loop start number
+li      $t1, 30             # end loop number
+
+j MAKE_ARRAY
+
+
+MAKE_ARRAY:
+
+bge     $t0, $t1, Print_loop_01
+
+li      $a0, 0              # minimum number
+li      $a1, 100            # max random number value
+li      $v0, 42             # generates random number
+syscall
