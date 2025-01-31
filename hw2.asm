@@ -24,11 +24,10 @@ addi    $sp, $sp, -120      # space in stack for 30 ints
 li      $t0, 0              # loop start number
 li      $t1, 30             # end loop number
 
-j MAKE_ARRAY
+j Make_Array
 
 
-MAKE_ARRAY:
-
+Make_Array:
 bge     $t0, $t1, Print_loop_01
 
 li      $a0, 0              # minimum number
