@@ -24,11 +24,20 @@ main:
     li      $t0, 0              # loop start number
     li      $t1, 30             # end loop number
 
+
+
+Start_program:
+
+    li      $v0, 4
+    la      $ a0, START_TEXT    # "The original array: "
+    syscall
+
     j Make_Array
 
 
+
 Make_Array:
-    bge     $t0, $t1, Print_loop_01
+    bge     $t0, $t1, Reset
 
     li      $a0, 0              # minimum number
     li      $a1, 100            # max random number value
@@ -45,5 +54,5 @@ Make_Array:
     j Make_Array
 
 
-Print_loop_01:
-    li  $t0, 0                  # reset the loop
+Reset:
+    add     $t0, $t0, $zero     # resets loop counter to 0
