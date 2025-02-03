@@ -40,4 +40,6 @@ Make_Array:
     sw      $a0, $t2($sp)       # store the number in the array location [$t2 / 4]
     syscall                     # random number is in $a0
 
+    addi    $t0, $t0, 1         # loop counter
+
     j Make_Array
