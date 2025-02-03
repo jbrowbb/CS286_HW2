@@ -43,3 +43,7 @@ Make_Array:
     addi    $t0, $t0, 1         # loop counter
 
     j Make_Array
+
+
+Print_loop_01:
+    li  $t0, 0                  # reset the loop
